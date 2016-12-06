@@ -13,15 +13,12 @@ goto check_Permissions
         echo Failure: Current permissions inadequate.
 		break
     )
-
-    pause >nul
-pause
 :cad_Login
 	reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /f /v "DisableCAD" /t REG_DWORD /d "0"
-	pause
+	echo Ctrl+Alt+Del required.
 	goto passwd_Policy_ask
 :passwd_Policy_ask
-	set /P c=Config file method? [y/n,]
+	set /P c=Config file method? [y/n]
 	if /I "%c%" EQU "y" goto :passwd_Policy_cfg
 	if /I "%c%" EQU "n" goto :passwd_Policy_net
 :passwd_Policy_cfg
