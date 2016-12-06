@@ -56,7 +56,7 @@ goto check_Permissions
 	for %%i in (C:\Software\*) do %%i
 	goto run_Updates
 :run_Updates
-	echo Please move WSUSOffline files to C:\WSUSOfffline.
+	echo Please move WSUSOffline files to C:\WSUSOfffline with RunAll.cmd in root.
 	cd C:\WSUSOfffline
 	RunAll.cmd
 	echo Done. Good night!
