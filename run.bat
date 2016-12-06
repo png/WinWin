@@ -49,8 +49,11 @@ goto check_Permissions
 	echo Done. Check C:\mediafiles.txt for list.
 	goto run_Software
 :run_Software
-	echo Software selection to be added.
+	echo Add files to C:\Software to execute here. Kill executables to continue script.
+	cd\
+	mkdir Software
 	pause
+	for %%i in (C:\Software\*) do %%i
 	goto run_Updates
 :run_Updates
 	echo Please move WSUSOffline files to C:\WSUSOfffline.
