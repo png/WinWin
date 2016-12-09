@@ -1,2 +1,2 @@
 # WinWin
-Script for simplifying CyberPatriot work.
+Script for simplifying security work.
