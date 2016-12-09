@@ -47,6 +47,10 @@ goto check_Permissions
 	dir /b/s *.jpg >> mediafiles.txt
 	dir /b/s *.gif >> mediafiles.txt
 	echo Done. Check C:\mediafiles.txt for list.
+	goto list_Shares
+:list_Shares
+	echo Listing shares to C:\shares.txt
+	net share >> shares.txt
 	goto run_Software
 :run_Software
 	echo Add files to C:\Software to execute here. Kill executables to continue script.
@@ -58,7 +62,9 @@ goto check_Permissions
 :run_Updates
 	echo Please move WSUSOffline files to C:\WSUSOfffline with RunAll.cmd in root.
 	cd C:\WSUSOfffline
-	RunAll.cmd
+	UpdateInstaller.exe
+	net start wuauserv
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v AUOptions /t REG_DWORD /d 0 /f
 	echo Done. Good night!
 	pause
 	shutdown -r
